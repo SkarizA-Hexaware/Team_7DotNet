@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Team_7WebAPI.Model
 {
-    public class My_Details_View
+    public class My_Details_Section_View
     {
         public int Employee_Id { get; set; }
         public string Full_Name { get; set; }
