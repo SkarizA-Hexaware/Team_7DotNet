@@ -8,7 +8,9 @@ namespace Team_7WebAPI.Model
     public class My_Leave_Application__Section_View
     {
         public int Leave_ID{ get; set; }
+
         public int Number_of_Days { get; set; }
+
         public DateTime  Start_Date { get; set; }
         public DateTime End_Date { get; set; }
         public string Leave_Type { get; set; }
