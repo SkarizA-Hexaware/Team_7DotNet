@@ -9,13 +9,13 @@ namespace Team_7WebAPI.DataAccessLayer
 {
     public class DataAccessLayer_Db : DbContext
     {
-        public DataAccessLayer_Db(DbContextOptions<DataAccessLayer_Db> options): base(options)
+        public DataAccessLayer_Db(DbContextOptions<DataAccessLayer_Db> options) : base(options)
         {
 
         }
-        public DbSet<My_Details_Section_Db> my_Details_Section_Dbs { get; set; }  
-        public DbSet<Manager_Details_Section_Db> manager_Details_Section_Dbs { get; set; }
+        public DbSet<EmployeeDetails_Db> employeeDetails_Dbs { get; set; }
+        public DbSet<ManagerDetails_Db> managerDetails_Dbs { get; set; }
 
-        public  DbSet<My_Leave_Application_Section_Db> My_Leave_Application_Section_Dbs { get; set; }
+        public DbSet<LeaveDetails_Db> leaveDetails_Dbs { get; set; }
     }
 }

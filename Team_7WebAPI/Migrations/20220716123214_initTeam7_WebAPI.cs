@@ -3,27 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Team_7WebAPI.Migrations
 {
-    public partial class initTeam7_webApi : Migration
+    public partial class initTeam7_WebAPI : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "manager_Details_Section_Dbs",
-                columns: table => new
-                {
-                    Employee_ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Full_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email_Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Mobile_Number = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_manager_Details_Section_Dbs", x => x.Employee_ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "my_Details_Section_Dbs",
+                name: "employeeDetails_Dbs",
                 columns: table => new
                 {
                     Employee_Id = table.Column<int>(type: "int", nullable: false)
@@ -38,11 +23,11 @@ namespace Team_7WebAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_my_Details_Section_Dbs", x => x.Employee_Id);
+                    table.PrimaryKey("PK_employeeDetails_Dbs", x => x.Employee_Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "My_Leave_Application_Section_Dbs",
+                name: "leaveDetails_Dbs",
                 columns: table => new
                 {
                     Leave_ID = table.Column<int>(type: "int", nullable: false)
@@ -58,20 +43,35 @@ namespace Team_7WebAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_My_Leave_Application_Section_Dbs", x => x.Leave_ID);
+                    table.PrimaryKey("PK_leaveDetails_Dbs", x => x.Leave_ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "managerDetails_Dbs",
+                columns: table => new
+                {
+                    Employee_ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Full_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email_Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Mobile_Number = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_managerDetails_Dbs", x => x.Employee_ID);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "manager_Details_Section_Dbs");
+                name: "employeeDetails_Dbs");
 
             migrationBuilder.DropTable(
-                name: "my_Details_Section_Dbs");
+                name: "leaveDetails_Dbs");
 
             migrationBuilder.DropTable(
-                name: "My_Leave_Application_Section_Dbs");
+                name: "managerDetails_Dbs");
         }
     }
 }

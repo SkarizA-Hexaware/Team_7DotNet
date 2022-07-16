@@ -6,12 +6,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Team_7WebAPI.Model
 {
-    public class Manager_Details_Section_Db
+    public class ManagerDetails_View
     {
-        [Key]
+        [Required]
         public int Employee_ID { get; set; }
+        [Required]
         public string Full_Name { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
         public string Email_Address { get; set; }
+        [Required]
         public int Mobile_Number { get; set; }
     }
 }

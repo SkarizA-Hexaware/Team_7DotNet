@@ -10,8 +10,8 @@ using Team_7WebAPI.DataAccessLayer;
 namespace Team_7WebAPI.Migrations
 {
     [DbContext(typeof(DataAccessLayer_Db))]
-    [Migration("20220712165108_initTeam7_webApi")]
-    partial class initTeam7_webApi
+    [Migration("20220716123214_initTeam7_WebAPI")]
+    partial class initTeam7_WebAPI
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,28 +21,7 @@ namespace Team_7WebAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("Team_7WebAPI.Model.Manager_Details_Section_Db", b =>
-                {
-                    b.Property<int>("Employee_ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Email_Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Full_Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Mobile_Number")
-                        .HasColumnType("int");
-
-                    b.HasKey("Employee_ID");
-
-                    b.ToTable("manager_Details_Section_Dbs");
-                });
-
-            modelBuilder.Entity("Team_7WebAPI.Model.My_Details_Section_Db", b =>
+            modelBuilder.Entity("Team_7WebAPI.Model.EmployeeDetails_Db", b =>
                 {
                     b.Property<int>("Employee_Id")
                         .ValueGeneratedOnAdd()
@@ -72,10 +51,10 @@ namespace Team_7WebAPI.Migrations
 
                     b.HasKey("Employee_Id");
 
-                    b.ToTable("my_Details_Section_Dbs");
+                    b.ToTable("employeeDetails_Dbs");
                 });
 
-            modelBuilder.Entity("Team_7WebAPI.Model.My_Leave_Application_Section_Db", b =>
+            modelBuilder.Entity("Team_7WebAPI.Model.LeaveDetails_Db", b =>
                 {
                     b.Property<int>("Leave_ID")
                         .ValueGeneratedOnAdd()
@@ -108,7 +87,28 @@ namespace Team_7WebAPI.Migrations
 
                     b.HasKey("Leave_ID");
 
-                    b.ToTable("My_Leave_Application_Section_Dbs");
+                    b.ToTable("leaveDetails_Dbs");
+                });
+
+            modelBuilder.Entity("Team_7WebAPI.Model.ManagerDetails_Db", b =>
+                {
+                    b.Property<int>("Employee_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Email_Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Full_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Mobile_Number")
+                        .HasColumnType("int");
+
+                    b.HasKey("Employee_ID");
+
+                    b.ToTable("managerDetails_Dbs");
                 });
 #pragma warning restore 612, 618
         }
