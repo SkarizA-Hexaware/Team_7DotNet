@@ -9,7 +9,7 @@ namespace Team_7WebAPI.Model
     public class ManagerDetails_View
     {
         [Required]
-        public int Employee_ID { get; set; }
+        public int Manager_Id { get; set; }
         [Required]
         public string Full_Name { get; set; }
         [Required]

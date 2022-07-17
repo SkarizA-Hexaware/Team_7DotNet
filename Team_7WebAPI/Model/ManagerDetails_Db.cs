@@ -11,8 +11,9 @@ namespace Team_7WebAPI.Model
     public class ManagerDetails_Db
     {
         [Key]
-        [ForeignKey("Employee_ID")]
-        public int Employee_ID { get; set; }
+        public int Manager_Id { get; set; }
+      
+        public int Employee_Id { get; set; }
         public string Full_Name { get; set; }
         public string Email_Address { get; set; }
         public int Mobile_Number { get; set; }

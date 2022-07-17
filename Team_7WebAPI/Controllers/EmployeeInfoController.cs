@@ -23,17 +23,17 @@ namespace Team_7WebAPI.Controllers
             this.mapper = mapper;
         }
           [HttpGet]
-        [Route("Allemp")]
+        [Route("ShowAll")]
         public async Task<IActionResult> displayall()
         {
-            var ar = await employee.GetAllEmployee();
+            var ar = await employee.ShowAllEmployee();
             return Ok(ar);
         }
         [HttpGet]
-        [Route("ShowSpecific")]
-        public async Task<IActionResult> ShowSpecific( int EmployeeId)
+        [Route("FindbyID")]
+        public async Task<IActionResult> ShowAllEmployee( int Employee_Id)
         {
-            var ar = await employee.SearchById(EmployeeId);
+            var ar = await employee.SearchById(Employee_Id);
             return Ok(ar);
         }
         [HttpPost]
@@ -44,23 +44,23 @@ namespace Team_7WebAPI.Controllers
             return 1;
         }
         [HttpDelete]
-        [Route("DeleteEmployee/{EmployeeId?}")]
-        public async Task<IActionResult> DeleteEmployee(int? EmployeeId)
+        [Route("DeleteEmployee/{Employee_Id?}")]
+        public async Task<IActionResult> DeleteEmployee(int? Employee_Id)
         {
-            if(EmployeeId!=null)
+            if(Employee_Id!=null)
             {
-                await employee.RemoveEmp(EmployeeId);
+                await employee.RemoveEmp(Employee_Id);
                 return Ok();
             }
             return NotFound();
         }
         [HttpPatch]
         [Route("UpdateEmployee/{EmployeeId?}")]
-        public async Task<IActionResult> UpdateEmployee(int? EmployeeId,EmployeeDetails_Db employeeDetails_Db)
+        public async Task<IActionResult> UpdateEmployee(int? Employee_Id,EmployeeDetails_Db employeeDetails_Db)
         {
-            if(EmployeeId!=null)
+            if(Employee_Id!=null)
             {
-                await employee.UpdateEmp(EmployeeId, employeeDetails_Db);
+                await employee.UpdateEmp(Employee_Id, employeeDetails_Db);
                 return Ok();
             }
             return NotFound();

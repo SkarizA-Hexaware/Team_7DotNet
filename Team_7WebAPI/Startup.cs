@@ -30,6 +30,8 @@ namespace Team_7WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IEmployee, Employee>();
+            services.AddScoped<IManager, Manager>();
+            services.AddScoped<ILeave, Leave>();
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContextPool<DataAccessLayer_Db>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
             services.AddControllers();

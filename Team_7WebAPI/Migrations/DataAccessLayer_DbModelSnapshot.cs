@@ -62,6 +62,9 @@ namespace Team_7WebAPI.Migrations
                     b.Property<DateTime>("Applied_ON")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Employee_Id")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("End_Date")
                         .HasColumnType("datetime2");
 
@@ -90,7 +93,7 @@ namespace Team_7WebAPI.Migrations
 
             modelBuilder.Entity("Team_7WebAPI.Model.ManagerDetails_Db", b =>
                 {
-                    b.Property<int>("Employee_ID")
+                    b.Property<int>("Manager_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -98,13 +101,16 @@ namespace Team_7WebAPI.Migrations
                     b.Property<string>("Email_Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Employee_Id")
+                        .HasColumnType("int");
+
                     b.Property<string>("Full_Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Mobile_Number")
                         .HasColumnType("int");
 
-                    b.HasKey("Employee_ID");
+                    b.HasKey("Manager_Id");
 
                     b.ToTable("managerDetails_Dbs");
                 });

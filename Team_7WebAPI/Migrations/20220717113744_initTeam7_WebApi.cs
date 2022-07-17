@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Team_7WebAPI.Migrations
 {
-    public partial class initTeam7_WebAPI : Migration
+    public partial class initTeam7_WebApi : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,6 +32,7 @@ namespace Team_7WebAPI.Migrations
                 {
                     Leave_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Employee_Id = table.Column<int>(type: "int", nullable: false),
                     Number_of_Days = table.Column<int>(type: "int", nullable: false),
                     Start_Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     End_Date = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -50,15 +51,16 @@ namespace Team_7WebAPI.Migrations
                 name: "managerDetails_Dbs",
                 columns: table => new
                 {
-                    Employee_ID = table.Column<int>(type: "int", nullable: false)
+                    Manager_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Employee_Id = table.Column<int>(type: "int", nullable: false),
                     Full_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email_Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Mobile_Number = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_managerDetails_Dbs", x => x.Employee_ID);
+                    table.PrimaryKey("PK_managerDetails_Dbs", x => x.Manager_Id);
                 });
         }
 

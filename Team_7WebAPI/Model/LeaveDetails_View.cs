@@ -11,6 +11,8 @@ namespace Team_7WebAPI.Model
         [Required]
         public int Leave_ID{ get; set; }
         [Required]
+        public int Employee_Id { get; set; }
+        [Required]
         public int Number_of_Days { get; set; }
         [Required]
         [DataType(DataType.Date)]

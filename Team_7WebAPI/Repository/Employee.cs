@@ -28,15 +28,15 @@ namespace Team_7WebAPI.Repository
 
         }
 
-        public async Task<List<EmployeeDetails_Db>> GetAllEmployee()
+        public async Task<List<EmployeeDetails_Db>> ShowAllEmployee()
         {
             var data = await dataAccessLayer_Db.employeeDetails_Dbs.ToListAsync();
             return data;
         }
 
-        public async Task RemoveEmp(int? EmployeeId)
+        public async Task RemoveEmp(int? Employee_Id)
         {
-            var data = await dataAccessLayer_Db.employeeDetails_Dbs.FirstOrDefaultAsync(x => x.Employee_Id == EmployeeId);
+            var data = await dataAccessLayer_Db.employeeDetails_Dbs.FirstOrDefaultAsync(x => x.Employee_Id == Employee_Id);
             if (data != null)
             {
                 dataAccessLayer_Db.Remove(data);
@@ -44,16 +44,16 @@ namespace Team_7WebAPI.Repository
             await dataAccessLayer_Db.SaveChangesAsync();
         }
 
-        public async Task<EmployeeDetails_Db> SearchById(int EmployeeId)
+        public async Task<EmployeeDetails_Db> SearchById(int Employee_Id)
         {
-            var data = await dataAccessLayer_Db.employeeDetails_Dbs.FirstOrDefaultAsync(x => x.Employee_Id == EmployeeId);
+            var data = await dataAccessLayer_Db.employeeDetails_Dbs.FirstOrDefaultAsync(x => x.Employee_Id == Employee_Id);
             var maped = mapper.Map<EmployeeDetails_Db>(data);
             return data;
         }
 
-        public async Task UpdateEmp(int? EmployeeId,EmployeeDetails_Db employeeDetails_Db)
+        public async Task UpdateEmp(int? Employee_Id,EmployeeDetails_Db employeeDetails_Db)
         {
-            var data = await dataAccessLayer_Db.employeeDetails_Dbs.FirstOrDefaultAsync(x => x.Employee_Id == EmployeeId);
+            var data = await dataAccessLayer_Db.employeeDetails_Dbs.FirstOrDefaultAsync(x => x.Employee_Id == Employee_Id);
             if (data != null)
             {
                 data.Full_Name = employeeDetails_Db.Full_Name;
