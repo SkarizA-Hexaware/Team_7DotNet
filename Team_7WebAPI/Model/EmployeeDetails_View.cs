@@ -25,5 +25,6 @@ namespace Team_7WebAPI.Model
         [Required]
         public int Available_Leave_Balance { get; set; }
 
+         
     }
 }
