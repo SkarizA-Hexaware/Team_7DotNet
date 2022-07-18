@@ -31,6 +31,7 @@ namespace Team_7WebAPI.Repository
         public async Task<List<EmployeeDetails_Db>> ShowAllEmployee()
         {
             var data = await dataAccessLayer_Db.employeeDetails_Dbs.ToListAsync();
+             
             return data;
         }
 
@@ -66,5 +67,9 @@ namespace Team_7WebAPI.Repository
             }
         }
 
+        public async Task<int> Login(string Email_Address, string Password)
+        {
+            var data=await dataAccessLayer_Db.employeeDetails_Dbs.FirstOrDefaultAsync(x=>x.Email_Address == Email_Address)
+        }
     }
 }

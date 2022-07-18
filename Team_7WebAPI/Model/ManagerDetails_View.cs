@@ -16,6 +16,6 @@ namespace Team_7WebAPI.Model
         [DataType(DataType.EmailAddress)]
         public string Email_Address { get; set; }
         [Required]
-        public int Mobile_Number { get; set; }
+        public long Mobile_Number { get; set; }
     }
 }

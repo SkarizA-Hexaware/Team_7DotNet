@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Team_7WebAPI.Migrations
 {
-    public partial class initTeam7_WebApi : Migration
+    public partial class initTeam7WEBapi : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -56,7 +56,7 @@ namespace Team_7WebAPI.Migrations
                     Employee_Id = table.Column<int>(type: "int", nullable: false),
                     Full_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email_Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Mobile_Number = table.Column<int>(type: "int", nullable: false)
+                    Mobile_Number = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {

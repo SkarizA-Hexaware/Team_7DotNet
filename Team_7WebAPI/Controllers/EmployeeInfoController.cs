@@ -22,7 +22,7 @@ namespace Team_7WebAPI.Controllers
             this.employee = employee;
             this.mapper = mapper;
         }
-          [HttpGet]
+         [HttpGet]
         [Route("ShowAll")]
         public async Task<IActionResult> displayall()
         {
@@ -30,7 +30,7 @@ namespace Team_7WebAPI.Controllers
             return Ok(ar);
         }
         [HttpGet]
-        [Route("FindbyID")]
+        [Route("FindbyID/{Employee_Id}")]
         public async Task<IActionResult> ShowAllEmployee( int Employee_Id)
         {
             var ar = await employee.SearchById(Employee_Id);
@@ -55,7 +55,7 @@ namespace Team_7WebAPI.Controllers
             return NotFound();
         }
         [HttpPatch]
-        [Route("UpdateEmployee/{EmployeeId?}")]
+        [Route("UpdateEmployee")]
         public async Task<IActionResult> UpdateEmployee(int? Employee_Id,EmployeeDetails_Db employeeDetails_Db)
         {
             if(Employee_Id!=null)

@@ -107,8 +107,8 @@ namespace Team_7WebAPI.Migrations
                     b.Property<string>("Full_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Mobile_Number")
-                        .HasColumnType("int");
+                    b.Property<long>("Mobile_Number")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Manager_Id");
 
