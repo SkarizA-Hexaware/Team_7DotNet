@@ -65,5 +65,12 @@ namespace Team_7WebAPI.Controllers
             }
             return NotFound();
         }
+        [HttpGet]
+        [Route("Login/{email}/{password}")]
+        public async Task<int> Login(string email, string password)
+        {
+            var add = await employee.Login(email,password);
+            return 1;
+        }
     }
 }
