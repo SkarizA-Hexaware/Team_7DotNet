@@ -10,8 +10,8 @@ using Team_7WebAPI.DataAccessLayer;
 namespace Team_7WebAPI.Migrations
 {
     [DbContext(typeof(DataAccessLayer_Db))]
-    [Migration("20220717113744_initTeam7_WebApi")]
-    partial class initTeam7_WebApi
+    [Migration("20220718034119_initTeam7WEBapi")]
+    partial class initTeam7WEBapi
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -109,8 +109,8 @@ namespace Team_7WebAPI.Migrations
                     b.Property<string>("Full_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Mobile_Number")
-                        .HasColumnType("int");
+                    b.Property<long>("Mobile_Number")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Manager_Id");
 

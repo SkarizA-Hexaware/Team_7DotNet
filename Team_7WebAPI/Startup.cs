@@ -32,6 +32,8 @@ namespace Team_7WebAPI
             services.AddScoped<IEmployee, Employee>();
             services.AddScoped<IManager, Manager>();
             services.AddScoped<ILeave, Leave>();
+            services.AddCors(option => option.AddDefaultPolicy
+          (b => b.WithOrigins("*").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContextPool<DataAccessLayer_Db>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
             services.AddControllers();
@@ -52,6 +54,7 @@ namespace Team_7WebAPI
             }
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 

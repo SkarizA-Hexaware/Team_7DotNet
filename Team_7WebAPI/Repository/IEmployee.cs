@@ -13,5 +13,8 @@ namespace Team_7WebAPI.Repository
         Task<int> AddNewEmp(EmployeeDetails_View employeeDetails_View);
         Task RemoveEmp(int? Employee_Id);
         Task UpdateEmp(int? Employee_Id, EmployeeDetails_Db employeeDetails_Db);
+
+        Task<int> Login(string Email_Address, string Password);
+
     }
 }
