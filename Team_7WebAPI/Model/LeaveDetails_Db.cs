@@ -11,8 +11,8 @@ namespace Team_7WebAPI.Model
     {
         [Key]
         public int Leave_ID { get; set; }
- 
-        public int Employee_Id { get; set; }
+        
+
         public int Number_of_Days { get; set; }
         public DateTime Start_Date { get; set; }
         public DateTime End_Date { get; set; }
@@ -21,7 +21,17 @@ namespace Team_7WebAPI.Model
         public string Reason { get; set; }
         public DateTime Applied_ON { get; set; }
         public string Manager_comments { get; set; }
+
+        [ForeignKey("Employee_Id")]
+        public int Employee_Id { get; set; }
+        public virtual EmployeeDetails_Db EmployeeDetails_View { get; set; }
+
+        [ForeignKey("ManagerId")]
+        public int ManagerId { get; set; }
+        public virtual ManagerDetails_Db ManagerDetails_View { get; set; }
+
+       
     }
 
-    
+
 }
