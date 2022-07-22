@@ -37,7 +37,7 @@ namespace Team_7WebAPI.Repository
 
         public async Task RemoveManager(int? Employee_Id)
         {
-            var data = await dataAccessLayer_Db.managerDetails_Dbs.FirstOrDefaultAsync(x => x.Employee_Id == Employee_Id);
+            var data = await dataAccessLayer_Db.managerDetails_Dbs.FirstOrDefaultAsync(x => x.Manager_Id == Employee_Id);
             if (data != null)
             {
                 dataAccessLayer_Db.Remove(data);
@@ -45,16 +45,16 @@ namespace Team_7WebAPI.Repository
             await dataAccessLayer_Db.SaveChangesAsync();
         }
 
-        public async Task<ManagerDetails_Db> SearchById(int Employee_Id)
+        public async Task<ManagerDetails_View> SearchById(int Employee_Id)
         {
-            var data = await dataAccessLayer_Db.managerDetails_Dbs.FirstOrDefaultAsync(x => x.Employee_Id == Employee_Id);
-            var maped = mapper.Map<ManagerDetails_Db>(data);
-            return data;
+            var data = await dataAccessLayer_Db.managerDetails_Dbs.FirstOrDefaultAsync(x => x.Manager_Id == Employee_Id);
+            var maped = mapper.Map<ManagerDetails_View>(data);
+            return maped;
         }
 
         public async Task UpdateManager(int? Employee_Id, ManagerDetails_Db  managerDetails_Db)
         {
-            var data = await dataAccessLayer_Db.managerDetails_Dbs.FirstOrDefaultAsync(x => x.Employee_Id == Employee_Id);
+            var data = await dataAccessLayer_Db.managerDetails_Dbs.FirstOrDefaultAsync(x => x.Manager_Id == Employee_Id);
             if (data != null)
             {
                 data.Full_Name = managerDetails_Db.Full_Name;

@@ -3,29 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Team_7WebAPI.Migrations
 {
-    public partial class initTeam7WEBapi : Migration
+    public partial class initTeam_7Api : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "employeeDetails_Dbs",
-                columns: table => new
-                {
-                    Employee_Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Full_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email_Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Mobile_Number = table.Column<long>(type: "bigint", nullable: false),
-                    Date_Joined = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Department = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Available_Leave_Balance = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_employeeDetails_Dbs", x => x.Employee_Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "leaveDetails_Dbs",
                 columns: table => new
@@ -53,7 +34,6 @@ namespace Team_7WebAPI.Migrations
                 {
                     Manager_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Employee_Id = table.Column<int>(type: "int", nullable: false),
                     Full_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email_Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Mobile_Number = table.Column<long>(type: "bigint", nullable: false)
@@ -62,6 +42,36 @@ namespace Team_7WebAPI.Migrations
                 {
                     table.PrimaryKey("PK_managerDetails_Dbs", x => x.Manager_Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "employeeDetails_Dbs",
+                columns: table => new
+                {
+                    Employee_Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Full_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email_Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Mobile_Number = table.Column<long>(type: "bigint", nullable: false),
+                    Date_Joined = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Department = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Manager_Id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_employeeDetails_Dbs", x => x.Employee_Id);
+                    table.ForeignKey(
+                        name: "FK_employeeDetails_Dbs_managerDetails_Dbs_Manager_Id",
+                        column: x => x.Manager_Id,
+                        principalTable: "managerDetails_Dbs",
+                        principalColumn: "Manager_Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_employeeDetails_Dbs_Manager_Id",
+                table: "employeeDetails_Dbs",
+                column: "Manager_Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

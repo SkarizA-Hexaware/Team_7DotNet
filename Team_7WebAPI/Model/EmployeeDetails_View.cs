@@ -23,8 +23,10 @@ namespace Team_7WebAPI.Model
         [Required]
         public string Department { get; set; }
         [Required]
-        public int Available_Leave_Balance { get; set; }
+        public int Manager_Id { get; set; }
 
-         
+
+
+
     }
 }

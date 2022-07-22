@@ -10,11 +10,11 @@ namespace Team_7WebAPI.Repository
     {
         Task<List<EmployeeDetails_Db>> ShowAllEmployee();
         Task<EmployeeDetails_Db> SearchById(int Employee_Id);
-        Task<int> AddNewEmp(EmployeeDetails_View employeeDetails_View);
+        Task<int> AddNewEmp(EmployeeDetails_Db employeeDetails_Db);
         Task RemoveEmp(int? Employee_Id);
         Task UpdateEmp(int? Employee_Id, EmployeeDetails_Db employeeDetails_Db);
 
-        Task<int> Login(string Email_Address, string Password);
+        Task<EmployeeDetails_Db> Login(string Email_Address, string Password);
 
     }
 }

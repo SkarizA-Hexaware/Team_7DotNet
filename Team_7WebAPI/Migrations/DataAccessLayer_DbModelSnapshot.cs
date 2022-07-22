@@ -26,9 +26,6 @@ namespace Team_7WebAPI.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("Available_Leave_Balance")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Date_Joined")
                         .HasColumnType("datetime2");
 
@@ -41,6 +38,9 @@ namespace Team_7WebAPI.Migrations
                     b.Property<string>("Full_Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Manager_Id")
+                        .HasColumnType("int");
+
                     b.Property<long>("Mobile_Number")
                         .HasColumnType("bigint");
 
@@ -48,6 +48,8 @@ namespace Team_7WebAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Employee_Id");
+
+                    b.HasIndex("Manager_Id");
 
                     b.ToTable("employeeDetails_Dbs");
                 });
@@ -101,9 +103,6 @@ namespace Team_7WebAPI.Migrations
                     b.Property<string>("Email_Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Employee_Id")
-                        .HasColumnType("int");
-
                     b.Property<string>("Full_Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -113,6 +112,17 @@ namespace Team_7WebAPI.Migrations
                     b.HasKey("Manager_Id");
 
                     b.ToTable("managerDetails_Dbs");
+                });
+
+            modelBuilder.Entity("Team_7WebAPI.Model.EmployeeDetails_Db", b =>
+                {
+                    b.HasOne("Team_7WebAPI.Model.ManagerDetails_Db", "managerDetails_Dbs")
+                        .WithMany()
+                        .HasForeignKey("Manager_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("managerDetails_Dbs");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,7 +10,7 @@ namespace Team_7WebAPI.Repository
      public interface IManager
     {
         Task<List<ManagerDetails_Db>> GetAllManager();
-        Task<ManagerDetails_Db> SearchById(int Manager_ID);
+        Task<ManagerDetails_View> SearchById(int Manager_ID);
         Task<int> AddNewManager(ManagerDetails_View managerDetails_View);
         Task RemoveManager(int? Employee_Id);
         Task UpdateManager(int? Employee_Id, ManagerDetails_Db managerDetails_Db);

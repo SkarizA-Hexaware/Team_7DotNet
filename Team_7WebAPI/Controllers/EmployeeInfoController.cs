@@ -38,9 +38,9 @@ namespace Team_7WebAPI.Controllers
         }
         [HttpPost]
         [Route("AddEmployee")]
-        public async Task<int> AddnewEmployee(EmployeeDetails_View employeeDetails_View)
+        public async Task<int> AddnewEmployee(EmployeeDetails_Db employeeDetails_Db)
         {
-            var ar = await employee.AddNewEmp(employeeDetails_View);
+            var ar = await employee.AddNewEmp(employeeDetails_Db);
             return 1;
         }
         [HttpDelete]
@@ -67,10 +67,14 @@ namespace Team_7WebAPI.Controllers
         }
         [HttpGet]
         [Route("Login/{email}/{password}")]
-        public async Task<int> Login(string email, string password)
+        public async Task<IActionResult> Login(string email, string password)
         {
             var add = await employee.Login(email,password);
-            return 1;
+            if(add != null)
+            {
+                return Ok(add);
+            }
+            return BadRequest();
         }
     }
 }

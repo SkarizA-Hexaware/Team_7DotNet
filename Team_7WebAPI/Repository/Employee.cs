@@ -19,10 +19,10 @@ namespace Team_7WebAPI.Repository
             this.dataAccessLayer_Db = dataAccessLayer_Db;
             this.mapper = mapper;
         }
-        public async Task<int> AddNewEmp(EmployeeDetails_View employeeDetails_View)
+        public async Task<int> AddNewEmp(EmployeeDetails_Db employeeDetails_Db)
         {
-            var data = mapper.Map<EmployeeDetails_Db>(employeeDetails_View);
-            dataAccessLayer_Db.employeeDetails_Dbs.Add(data);
+            
+            await dataAccessLayer_Db.employeeDetails_Dbs.AddAsync(employeeDetails_Db);
             await dataAccessLayer_Db.SaveChangesAsync();
             return 1;
 
@@ -62,15 +62,18 @@ namespace Team_7WebAPI.Repository
                 data.Mobile_Number = employeeDetails_Db.Mobile_Number;
                 data.Date_Joined = employeeDetails_Db.Date_Joined;
                 data.Department = employeeDetails_Db.Department;
-                data.Available_Leave_Balance = employeeDetails_Db.Available_Leave_Balance;
+                
                 await  dataAccessLayer_Db.SaveChangesAsync();
             }
         }
 
-        public async Task<int> Login(string Email_Address, string Password)
+        public async Task<EmployeeDetails_Db> Login(string Email_Address, string Password)
         {
-            var data = await dataAccessLayer_Db.employeeDetails_Dbs.FirstOrDefaultAsync(x => x.Email_Address == Email_Address);
-            return 1;
+            var data = await dataAccessLayer_Db.employeeDetails_Dbs.FirstOrDefaultAsync(x => x.Email_Address == Email_Address & x.Password == Password);
+            
+                var map = mapper.Map<EmployeeDetails_Db>(data);
+                return map;
+            
         }
     }
 }

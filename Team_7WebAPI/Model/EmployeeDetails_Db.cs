@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,7 +17,10 @@ namespace Team_7WebAPI.Model
          public long Mobile_Number { get; set; }
          public DateTime Date_Joined { get; set; }
          public string Department { get; set; }
-         public int Available_Leave_Balance { get; set; }
+        public int Manager_Id { get; set; }
+        [ForeignKey("Manager_Id")]
+        public virtual ManagerDetails_Db managerDetails_Dbs { get; set; }
+        
 
 
     }
