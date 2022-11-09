@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Create a Release
-      uses: Ariz1710/Github-Release-Action@v4
+      uses: Team_7WebAPI/Github-Release-Action@v4
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
