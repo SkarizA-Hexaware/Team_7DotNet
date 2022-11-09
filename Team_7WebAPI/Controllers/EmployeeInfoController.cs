@@ -34,7 +34,7 @@ namespace Team_7WebAPI.Controllers
         public async Task<IActionResult> ShowAllEmployee( int Employee_Id)
         {
             var ar = await employee.SearchById(Employee_Id);
-            return Ok(ar);
+            return Ok(ar); 
         }
         [HttpPost]
         [Route("AddEmployee")]
