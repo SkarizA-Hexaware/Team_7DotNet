@@ -16,6 +16,6 @@ namespace Team_7WebAPI.DataAccessLayer
         public DbSet<EmployeeDetails_Db> employeeDetails_Dbs { get; set; }
         public DbSet<ManagerDetails_Db> managerDetails_Dbs { get; set; }
 
-        public DbSet<LeaveDetails_Db> leaveDetails_Dbs { get; set; }
+        public DbSet<LeaveDetails_Db> leaveDetails_Dbs { get; set; } 
     }
 }
