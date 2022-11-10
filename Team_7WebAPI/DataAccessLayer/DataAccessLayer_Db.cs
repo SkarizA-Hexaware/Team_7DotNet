@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Team_7WebAPI.Model;  
+using Team_7WebAPI.Model; 
 
 namespace Team_7WebAPI.DataAccessLayer
 {
