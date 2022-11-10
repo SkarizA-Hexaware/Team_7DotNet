@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Team_7WebAPI.Repository;
 using Team_7WebAPI.Model;
-using AutoMapper;
+using AutoMapper; 
 
 namespace Team_7WebAPI.Controllers
 {
