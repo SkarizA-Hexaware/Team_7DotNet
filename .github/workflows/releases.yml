@@ -1,5 +1,4 @@
 name: Release
-#this is a comment
 on:
   push:
     tags:
