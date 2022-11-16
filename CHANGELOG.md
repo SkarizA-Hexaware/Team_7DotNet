@@ -1,3 +1,12 @@
+## [0.1.1](https://github.com/SkarizA-Hexaware/Team_7DotNet/compare/v0.1.0...v0.1.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* improved performance in release notes ([de2918c](https://github.com/SkarizA-Hexaware/Team_7DotNet/commit/de2918c832f9dd2b17270bd39e8f143306a5c1a6))
+
+
+
 # [0.1.0](https://github.com/SkarizA-Hexaware/Team_7DotNet/compare/v1.8.0...v0.1.0) (2022-11-16)
 
 
