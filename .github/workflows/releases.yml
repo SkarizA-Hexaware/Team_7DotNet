@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+#this is a comment
 
 jobs:
   changelog:
