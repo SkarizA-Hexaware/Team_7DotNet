@@ -7,7 +7,7 @@ on:
 
 jobs:
   job1:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -15,7 +15,7 @@ jobs:
       - name: Run workflow 1
         run: echo "Running workflow 1 on runner $RUNNER_NAME"
   job2:
-      runs-on: self-hosted
+      runs-on: windows-latest
       steps:
         - name: Checkout code
           uses: actions/checkout@v2
