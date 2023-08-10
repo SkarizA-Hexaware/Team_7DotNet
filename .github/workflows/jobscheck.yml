@@ -7,7 +7,10 @@ on:
 
 jobs:
   job1:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        runner: [ubuntu-latest, windows-latest] # Add the names of your self-hosted runners here
+    runs-on: ${{ matrix.runner }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
