@@ -1,0 +1,24 @@
+name: Workflow 1
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run workflow 1
+        run: echo "Running workflow 1 on runner $RUNNER_NAME"
+  job2:
+      runs-on: self-hosted
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Run workflow 2
+          run: echo "Running workflow 2 on runner $RUNNER_NAME"
