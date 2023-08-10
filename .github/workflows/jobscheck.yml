@@ -7,10 +7,11 @@ on:
 
 jobs:
   job1:
-    strategy:
-      matrix:
-        runner: [ubuntu-latest, windows-latest] # Add the names of your self-hosted runners here
-    runs-on: ${{ matrix.runner }}
+#     strategy:
+#       matrix:
+#         runner: [ubuntu-latest, windows-latest] # Add the names of your self-hosted runners here
+#     runs-on: ${{ matrix.runner }}
+    runs-on: [ubuntu-latest,windows-latest]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -18,7 +19,7 @@ jobs:
       - name: Run workflow 1
         run: echo "Running workflow 1 on runner $RUNNER_NAME"
   job2:
-      runs-on: windows-latest
+      runs-on: [ubuntu-latest,windows-latest]
       steps:
         - name: Checkout code
           uses: actions/checkout@v2
