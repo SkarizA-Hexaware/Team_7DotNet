@@ -1,32 +1,32 @@
-name: Release Notes
+# name: Release Notes
 
-on:
-  push:
-   branches:
-     - master
+# on:
+#   push:
+#    branches:
+#      - master
 
-jobs:
-  release:
-   runs-on: ubuntu-latest
+# jobs:
+#   release:
+#    runs-on: ubuntu-latest
 
-   steps:
-    - name: checkout
-      uses: actions/checkout@v2
+#    steps:
+#     - name: checkout
+#       uses: actions/checkout@v2
 
-    - name: conventional changelog action
-      id: changelog
-      uses: TriPSs/conventional-changelog-action@latest
-      with:
-        github-token: "${{ secrets.GITHUB_TOKEN }}"
+#     - name: conventional changelog action
+#       id: changelog
+#       uses: TriPSs/conventional-changelog-action@latest
+#       with:
+#         github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-    - name: create release
-      uses: softprops/action-gh-release@v1
-      if: ${{steps.changelog.outputs.skipped == 'false'}}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-          tag_name: ${{ steps.changelog.outputs.tag }}
-          name: ${{ steps.changelog.outputs.tag }}
-          body: ${{steps.changelog.outputs.clean_changelog}}
-          draft: false
-          prerelease: false
+#     - name: create release
+#       uses: softprops/action-gh-release@v1
+#       if: ${{steps.changelog.outputs.skipped == 'false'}}
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       with:
+#           tag_name: ${{ steps.changelog.outputs.tag }}
+#           name: ${{ steps.changelog.outputs.tag }}
+#           body: ${{steps.changelog.outputs.clean_changelog}}
+#           draft: false
+#           prerelease: false
